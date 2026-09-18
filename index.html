@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NokoHub - marketplace nomor virtual.">
+  <title>NokoHub — Nomor Virtual</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">Noko<span>Hub</span></a>
+  <nav>
+    <a href="#products">Produk</a>
+    <a href="#check">Cek Pesanan</a>
+    <a href="#admin">Admin</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">NOKOHUB</p>
+    <h1>Nomor virtual,<br><span>simple & cepat.</span></h1>
+    <p class="hero-copy">Pilih nomor yang tersedia, buat pesanan, lalu cek status pesanan menggunakan kode akses.</p>
+    <a class="button primary" href="#products">Lihat Nomor</a>
+  </div>
+  <div class="hero-card">
+    <div class="pulse"></div>
+    <strong>Stok real-time</strong>
+    <span>Data berasal dari database NokoHub.</span>
+  </div>
+</section>
+
+<section id="products" class="section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">KATALOG</p>
+      <h2>Nomor tersedia</h2>
+    </div>
+    <select id="countryFilter">
+      <option value="">Semua negara</option>
+    </select>
+  </div>
+  <div id="productsGrid" class="grid">
+    <div class="loading">Memuat produk...</div>
+  </div>
+</section>
+
+<section id="check" class="section split">
+  <div>
+    <p class="eyebrow">ORDER</p>
+    <h2>Cek pesanan</h2>
+    <p class="muted">Masukkan kode order dan access token yang muncul setelah membuat pesanan.</p>
+  </div>
+  <form id="checkForm" class="panel">
+    <input id="checkCode" required placeholder="Contoh: NK-ABC123">
+    <input id="checkToken" required placeholder="Access token">
+    <button class="button primary">Cek Status</button>
+    <div id="checkResult"></div>
+  </form>
+</section>
+
+<section id="admin" class="section admin-section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">ADMIN</p>
+      <h2>Dashboard</h2>
+    </div>
+    <button id="adminLoginBtn" class="button">Login Admin</button>
+  </div>
+  <div id="adminPanel" class="hidden">
+    <div id="stats" class="stats"></div>
+    <div class="admin-grid">
+      <form id="productForm" class="panel">
+        <h3>Tambah nomor</h3>
+        <input id="pCountry" required placeholder="Negara, contoh: Indonesia">
+        <input id="pCode" required placeholder="Kode negara, contoh: ID">
+        <input id="pProvider" placeholder="Provider">
+        <input id="pPhone" required placeholder="+62812...">
+        <input id="pPrice" required type="number" min="0" placeholder="Harga IDR">
+        <button class="button primary">Tambah Produk</button>
+        <small id="productMsg"></small>
+      </form>
+      <div class="panel">
+        <h3>Produk</h3>
+        <div id="adminProducts"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Pesanan</h3>
+      <div id="adminOrders"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="orderModal" class="modal hidden">
+  <div class="modal-box">
+    <button class="close" id="closeModal">×</button>
+    <p class="eyebrow">BUAT PESANAN</p>
+    <h2 id="modalTitle">Nomor</h2>
+    <p id="modalPrice" class="price"></p>
+    <form id="orderForm">
+      <input id="customerName" required maxlength="100" placeholder="Nama">
+      <input id="customerContact" required maxlength="120" placeholder="WhatsApp / Telegram">
+      <textarea id="customerNote" maxlength="500" placeholder="Catatan (opsional)"></textarea>
+      <button class="button primary">Buat Pesanan</button>
+      <div id="orderResult"></div>
+    </form>
+  </div>
+</div>
+
+<footer>NokoHub © 2026 · Gunakan nomor virtual sesuai hukum dan ketentuan provider.</footer>
+<script src="/script.js"></script>
+</body>
+</html>
