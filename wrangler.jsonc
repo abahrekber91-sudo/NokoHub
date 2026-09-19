@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "nokohub-db",
-      "database_id": "PASTE_YOUR_D1_DATABASE_ID_HERE",
+      "database_id": "8b8e5122-408b-4d31-81b3-10105ebb5325",
       "migrations_dir": "migrations"
     }
   ]
