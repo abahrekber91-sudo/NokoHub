@@ -3,29 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NokoHub</title>
+  <meta name="theme-color" content="#070b14">
+  <title>NokoHub — Virtual Number Marketplace</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <header>
-    <h1>NokoHub</h1>
-    <p>Marketplace Nomor Virtual</p>
+  <div class="bg-glow"></div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">N</span>
+        <span>Noko<span>Hub</span></span>
+      </a>
+
+      <nav>
+        <a href="#products">Nomor</a>
+        <a href="#how">Cara Kerja</a>
+        <a href="#order">Cek Pesanan</a>
+      </nav>
+
+      <button class="nav-btn" onclick="scrollToProducts()">Beli Nomor</button>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <h2>Selamat Datang di NokoHub</h2>
-      <p>Pilih nomor yang tersedia dan buat pesanan.</p>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="status-dot"></span>
+            Nomor virtual tersedia
+          </div>
+
+          <h1>
+            Nomor Virtual
+            <span>Lebih Mudah.</span>
+          </h1>
+
+          <p>
+            Marketplace nomor virtual dengan proses sederhana,
+            cepat, dan mudah digunakan.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn" onclick="scrollToProducts()">
+              Lihat Nomor
+              <span>→</span>
+            </button>
+
+            <button class="secondary-btn" onclick="document.querySelector('#how').scrollIntoView({behavior:'smooth'})">
+              Cara kerja
+            </button>
+          </div>
+
+          <div class="mini-stats">
+            <div>
+              <strong id="availableCount">0</strong>
+              <span>Nomor tersedia</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Order online</span>
+            </div>
+            <div>
+              <strong>Fast</strong>
+              <span>Proses mudah</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="floating-card card-one">
+            <span class="country-flag">🇮🇩</span>
+            <div>
+              <b>Indonesia</b>
+              <small>Nomor tersedia</small>
+            </div>
+            <span class="online"></span>
+          </div>
+
+          <div class="phone-preview">
+            <div class="phone-top">
+              <span>9:41</span>
+              <span>● ● ●</span>
+            </div>
+
+            <div class="phone-screen">
+              <div class="shield">✓</div>
+              <h3>Nomor Siap</h3>
+              <p>Pesan nomor virtual dengan mudah.</p>
+              <div class="fake-number">+62 ••• ••••</div>
+              <div class="fake-btn">Available</div>
+            </div>
+          </div>
+
+          <div class="floating-card card-two">
+            <div class="check-circle">✓</div>
+            <div>
+              <b>Order berhasil</b>
+              <small>Proses aman & cepat</small>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Nomor Tersedia</h2>
-      <div id="products">
-        <p>Memuat produk...</p>
+    <section class="trust-section">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span>⚡</span>
+          <div>
+            <b>Proses cepat</b>
+            <small>Order online kapan saja</small>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <span>🔒</span>
+          <div>
+            <b>Data terlindungi</b>
+            <small>Informasi order dijaga</small>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <span>💬</span>
+          <div>
+            <b>Support</b>
+            <small>Bantuan untuk pelanggan</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">MARKETPLACE</span>
+            <h2>Pilih Nomor</h2>
+            <p>Pilih negara dan nomor yang tersedia.</p>
+          </div>
+
+          <div class="search-box">
+            <span>⌕</span>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Cari negara..."
+              oninput="renderProducts()"
+            >
+          </div>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="filter active" data-country="all">Semua</button>
+        </div>
+
+        <div id="products" class="product-grid">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Memuat nomor...</p>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <div>📭</div>
+          <h3>Nomor tidak ditemukan</h3>
+          <p>Coba gunakan pencarian atau filter lain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="section-label">SIMPLE PROCESS</span>
+          <h2>Cara Kerja</h2>
+          <p>Pesan nomor dalam beberapa langkah sederhana.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-icon">🌎</div>
+            <h3>Pilih nomor</h3>
+            <p>Pilih negara dan nomor yang tersedia.</p>
+          </div>
+
+          <div class="step-line"></div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-icon">🛒</div>
+            <h3>Buat pesanan</h3>
+            <p>Masukkan data kontak untuk pesanan.</p>
+          </div>
+
+          <div class="step-line"></div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-icon">✓</div>
+            <h3>Konfirmasi</h3>
+            <p>Simpan kode order untuk mengecek status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="check-section" id="order">
+      <div class="container">
+        <div class="check-card">
+          <div>
+            <span class="section-label">ORDER TRACKING</span>
+            <h2>Cek Pesanan</h2>
+            <p>Masukkan kode order dan access token kamu.</p>
+          </div>
+
+          <form id="checkForm">
+            <input id="orderCode" placeholder="Kode order, contoh: NK-..." required>
+            <input id="accessToken" placeholder="Access token" required>
+            <button class="primary-btn" type="submit">Cek Status</button>
+          </form>
+
+          <div id="checkResult"></div>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="logo">
+        <span class="logo-icon">N</span>
+        <span>Noko<span>Hub</span></span>
+      </div>
+      <p>© 2026 NokoHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="orderModal" class="modal hidden">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
+
+      <div class="modal-header">
+        <span class="section-label">NEW ORDER</span>
+        <h2>Pesan Nomor</h2>
+        <p id="selectedProduct"></p>
+      </div>
+
+      <form id="orderForm">
+        <input type="hidden" id="productId">
+
+        <label>
+          Nama
+          <input id="customerName" required maxlength="100" placeholder="Nama kamu">
+        </label>
+
+        <label>
+          Kontak
+          <input id="customerContact" required maxlength="120" placeholder="WhatsApp / Telegram">
+        </label>
+
+        <label>
+          Catatan <span>(opsional)</span>
+          <textarea id="orderNote" maxlength="500" placeholder="Catatan pesanan..."></textarea>
+        </label>
+
+        <button class="primary-btn full" type="submit">
+          Buat Pesanan
+        </button>
+
+        <div id="orderMessage"></div>
+      </form>
+    </div>
+  </div>
 
   <script src="/script.js"></script>
 </body>
